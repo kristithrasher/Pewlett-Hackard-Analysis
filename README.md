@@ -20,12 +20,12 @@ Bobby who is the HR Analyst tasked for employee research. He and I have been ask
 -	This table shows that    people are eligible for a mentorship program. 
 
 ## Summary
-Silver Tsunami is what Hewlett Packard refers to when they started this project of retirements and upcoming positions that need to be filled. A company who is looking at the future and being prepared they had the analysis completed to discover the number of retiring employees and who was eligible for a mentorship program. With these two tasks completed we have concluded that the following questions be answered…
-1.	90, 398 roles will need to be filled as the silver tsunami begins to make an impact. 
+Silver Tsunami is what Hewlett Packard refers to when they started this project of retirements and upcoming positions that need to be filled. A company who is looking at the future and being prepared they had the analysis completed to discover the number of retiring employees and who was eligible for a mentorship program. With these two tasks completed we have concluded that
+  1.  90, 398 roles will need to be filled as the silver tsunami begins to make an impact. 
 
 
 
-2.	Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees
+  2.	Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of           Pewlett Hackard employees
 
 
 
