@@ -1,8 +1,11 @@
 # Pewlett-Hackard-Analysis
+
 ## Overview
-Pewlett Hawkard is a large company with several thousand employees who is looking towards future by offering retirement package who meet specific criteria and looking at how many positions will be available due to retirements. This will only help this large upcoming company be prepared for the future. 
-Bobby who is the HR Analyst tasked for employee research. He and I have been asked to build an employee database using SQL by applying data modeling, engineering, and analysis skills. We worked with six csv files. 
-## Results
+Pewlett Hawkard is a large company with several thousand employees who is looking towards future by offering retirement package for those employees who meet specific criteria. Pewlett Hawkard is also looking at how many positions will be available due to retirements. This will only help this large upcoming company be prepared for the future. 
+Bobby who is the HR Analyst tasked for employee research was asked along with me to build an employee database using SQL. We will do this by applying data modeling, engineering, and analysis skills. We worked with six csv files to complete this task. 
+
+## Results 
+
 ###  The Number of Retiring Employees by Title
 -	A query was created a retirement titles table for employees who were eligible for retirement (birthday was between January 1, 1952 and December 31, 1955.
 ![Screenshot (141)](https://user-images.githubusercontent.com/94208810/147626829-d36b8e92-ef59-4214-b33d-d79894a91da4.png)
@@ -14,7 +17,7 @@ Bobby who is the HR Analyst tasked for employee research. He and I have been ask
 ![Screenshot (143)](https://user-images.githubusercontent.com/94208810/147626908-a5f244e9-fc4a-4417-b992-5ca517a83351.png)
 
 
-## Mentorship Program Eligibility 
+## Mentorship Program Eligibility
 -	A query was created to show a mentorship eligibility table for current employees who were born between January 1, 1965 and December 31, 1965. 
   ![Screenshot (147)](https://user-images.githubusercontent.com/94208810/147773554-91448063-a87e-4749-854e-94ba5cf92711.png)
 
@@ -32,9 +35,6 @@ Bobby who is the HR Analyst tasked for employee research. He and I have been ask
     ORDER BY COUNT(title)DESC;
     SELECT * FROM mentor_titles
     ![Screenshot (149)](https://user-images.githubusercontent.com/94208810/147775679-fd11d9df-25f8-4def-92f5-0390eb712284.png)
-
-
-
 
 ## Summary
 "Silver Tsunami" is what Hewlett Packard refers to when they started this project of retirements and upcoming positions that need to be filled. A company who is looking at the future and being prepared they had the analysis completed to discover the number of retiring employees and who was eligible for a mentorship program. With these two tasks completed we have concluded that
