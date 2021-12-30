@@ -23,7 +23,7 @@ SELECT * FROM retirement_info;
 
 DROP TABLE retirement_info;
 
-- Create new table for retiring employees with new column emp_no
+-- Create new table for retiring employees with new column emp_no
 SELECT emp_no, first_name, last_name
 INTO retirement_info
 FROM employees
@@ -138,6 +138,8 @@ FROM dept_manager AS dm
         ON (dm.emp_no = ce.emp_no);
 SELECT * FROM manager_info;
 
+
+
 -- List of Department Retirees
 -- include: emp_no, first name, last name, dept_name
 SELECT ce.emp_no,
@@ -153,41 +155,117 @@ FROM current_emp as ce
 
 SELECT * FROM dept_info;
 
---Create new table senior_staff_titles
-SELECT m.emp_no,
-	m.first_name,
-	m.last_name,
-	m.title
-INTO senior_staff_titles
-FROM mentorship_eligibility as m
-WHERE m.title = 'Senior Staff';
+DROP TABLE sales_info;
+-- Sales Team Retirement Info
+SELECT * 
+INTO sales_info
+FROM dept_info
+WHERE dept_name IN ('Sales');
 
-SELECT * FROM senior_staff_titles;
+SELECT * FROM sales_info;
+
+-- Mentorship Info
+SELECT * 
+INTO mentor_info
+FROM dept_info
+WHERE dept_name IN ('Sales', 'Development');
+SELECT * FROM mentor_info;
+
+--Count all retiring employees by title  between Jan1, 1952 and dec 31, 1955
+SELECT e.emp_no, 
+    e.first_name, 
+    e.last_name,
+    t.title,
+    t.from_date,
+    t.to_date
+INTO retirement_titles 
+FROM employees as e
+INNER JOIN titles as t
+ON (e.emp_no = t.emp_no)
+WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+ORDER BY e.emp_no;  
+
+
+SELECT * FROM retirement_titles
+
+--Count number of titles in retiring_employee_by_title
 SELECT COUNT (title)
-FROM senior_staff_titles;
+FROM retirement_titles
 
--- Create new table senior_engineer titles
-SELECT m.emp_no,
-	m.first_name,
-	m.last_name,
-	m.title
-INTO senior_engineer_titles
-FROM mentorship_eligibility as m
-WHERE m.title = 'Senior Engineer';  
+-- Use Dictinct with Orderby to remove duplicate rows
+SELECT DISTINCT ON (emp_no) emp_no,
+first_name,
+last_name,
+title
+INTO unique_titles
+FROM retirement_titles 
+ORDER BY emp_no ASC, to_date DESC;
 
-SELECT * FROM senior_engineer_titles;
-SELECT COUNT (title)
-FROM senior_engineer_titles;
+SELECT * FROM unique_titles;
 
+--Create a table to hold the unique titles and number of each for retiring employees
+SELECT COUNT (title),title
+INTO retiring_titles
+FROM unique_titles
+GROUP BY title
+ORDER BY COUNT(title)DESC;
 
-
-
-
-
-
-
-
+SELECT * FROM retiring_titles
 
 
+--DELIVERABLE 1 Retrieve the emp_no, first_name, and last_name columns from the employees table
+SELECT e.emp_no, 
+    e.first_name, 
+    e.last_name,
+    t.title,
+    t.from_date,
+    t.to_date
+INTO retirement_titles 
+FROM employees as e
+INNER JOIN titles as t
+ON (e.emp_no = t.emp_no)
+WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+ORDER BY e.emp_no;  
+    
+-- Use Dictinct with Orderby to remove duplicate rows
+SELECT DISTINCT ON (emp_no) emp_no,
+first_name,
+last_name,
+title
+INTO unique_titles
+FROM ;
+ORDER BY emp_no ASC, to_date DESC; 
 
+--SELECT * FROM unique_titles;
+--RETRIEVE number of employees by their most recent job tilte who are about to retire
+SELECT COUNT (title),title
+INTO retiring_titles
+FROM unique_titles
+GROUP BY title
+ORDER BY COUNT(title)DESC;
+
+SELECT * FROM retiring_titles;
+
+--mentorship_eligibility table
+SELECT DISTINCT ON (e.emp_no) e.emp_no,
+    e.first_name,
+    e.last_name,
+	e.birth_date,
+	de.from_date,
+	de.to_date,
+	t.title
+INTO mentorship_eligibility
+FROM employees as e
+INNER JOIN dept_emp as de
+	ON (e.emp_no = de.emp_no) 
+INNER JOIN titles as t
+	ON (e.emp_no = t.emp_no)
+--Get current employee
+WHERE de.to_date = '9999-01-01' 
+--Get employees with specific birthdate
+AND (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+ORDER BY e.emp_no;
+
+--SEE TABLE
+SELECT * FROM mentorship_eligibility
 
