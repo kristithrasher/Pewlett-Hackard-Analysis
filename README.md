@@ -16,17 +16,35 @@ Bobby who is the HR Analyst tasked for employee research. He and I have been ask
 
 ## Mentorship Program Eligibility 
 -	A query was created to show a mentorship eligibility table for current employees who were born between January 1, 1965 and December 31, 1965. 
+  ![Screenshot (147)](https://user-images.githubusercontent.com/94208810/147773554-91448063-a87e-4749-854e-94ba5cf92711.png)
 
--	This table shows that    people are eligible for a mentorship program. 
+
+-	This table shows that are  1,549 people are eligible for a mentorship program. 
+  - The following query searched the mentorship_eligibility table and counted the total. 
+  SELECT COUNT (title)
+  FROM mentorship_eligibility
+![Screenshot (145)](https://user-images.githubusercontent.com/94208810/147773441-a7449799-bdfb-408b-9185-281545d56ae2.png)
+  - The following table created from this query shows total count for all titles in mentorship_eligibility table. 
+    SELECT COUNT (title), title
+    INTO mentor_titles
+    FROM mentorship_eligibility
+    GROUP BY title
+    ORDER BY COUNT(title)DESC;
+    SELECT * FROM mentor_titles
+    ![Screenshot (149)](https://user-images.githubusercontent.com/94208810/147775679-fd11d9df-25f8-4def-92f5-0390eb712284.png)
+
+
+
 
 ## Summary
-Silver Tsunami is what Hewlett Packard refers to when they started this project of retirements and upcoming positions that need to be filled. A company who is looking at the future and being prepared they had the analysis completed to discover the number of retiring employees and who was eligible for a mentorship program. With these two tasks completed we have concluded that
-  1.  90, 398 roles will need to be filled as the silver tsunami begins to make an impact. 
+"Silver Tsunami" is what Hewlett Packard refers to when they started this project of retirements and upcoming positions that need to be filled. A company who is looking at the future and being prepared they had the analysis completed to discover the number of retiring employees and who was eligible for a mentorship program. With these two tasks completed we have concluded that
+  
+  1.  90,398 roles will need to be filled as the "silver tsunami" begins to make an impact. 
 
-
-
-  2.	Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of           Pewlett Hackard employees
-
+  2.  There are 1,549 who are eligible for the mentorship retirement program. 
+      2  managers, 283 Senior Staff employees, 427 Senior Engineers, 405 Engineers, 297 Staff, 77 Technique Leader       and 60 Assistant Engineer employees in the departments to mentor the next generation of Pewlett Hackard           employees. 
+      
+      
 
 
 
